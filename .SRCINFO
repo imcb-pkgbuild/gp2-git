@@ -7,10 +7,12 @@ pkgbase = gp2-git
 	license = GPL3
 	makedepends = git
 	makedepends = pandoc
+	depends = glibc
+	depends = glib2
 	depends = judy
 	provides = gp2
 	conflicts = gp2
-	source = gp2::git+https://github.com/UoYCS-plasma/GP2.git
+	source = gp2-git::git+https://github.com/UoYCS-plasma/GP2.git
 	sha256sums = SKIP
 
 pkgname = gp2-git

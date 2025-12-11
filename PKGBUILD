@@ -7,7 +7,11 @@ pkgdesc=" The rule-based graph programming language GP 2"
 arch=('x86_64')
 url="https://uoycs-plasma.github.io/GP2/"
 license=('GPL3')
-depends=('judy')
+depends=(
+    'glibc'
+    'glib2'
+    'judy'
+)
 makedepends=(
     'git'
     # stupid
@@ -17,7 +21,7 @@ checkdepends=()
 optdepends=()
 provides=("${pkgname%-git}")
 conflicts=("${pkgname%-git}")
-source=("${pkgname%-git}::git+https://github.com/UoYCS-plasma/GP2.git")
+source=("${pkgname}::git+https://github.com/UoYCS-plasma/GP2.git")
 sha256sums=('SKIP')
 
 pkgver() {
@@ -29,11 +33,13 @@ pkgver() {
 
 prepare() {
     cd "${pkgname}"
+
     # patch -p1 -i "$srcdir/${pkgname}-${pkgver}.patch"
 }
 
 build() {
     cd "${pkgname}"
+
     autoreconf -i
     ./configure --prefix=/opt/gp2
     make
@@ -41,10 +47,12 @@ build() {
 
 # check() {
 #     cd "${pkgname}"
+#
 #     make -k check
 # }
 
 package() {
     cd "${pkgname}"
+    
     make DESTDIR="${pkgdir}/" install
 }
