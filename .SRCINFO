@@ -1,0 +1,16 @@
+pkgbase = gp2-git
+	pkgdesc = The rule-based graph programming language GP 2
+	pkgver = r1077.b34765e
+	pkgrel = 1
+	url = https://uoycs-plasma.github.io/GP2/
+	arch = x86_64
+	license = GPL3
+	makedepends = git
+	makedepends = pandoc
+	depends = judy
+	provides = gp2
+	conflicts = gp2
+	source = gp2::git+https://github.com/UoYCS-plasma/GP2.git
+	sha256sums = SKIP
+
+pkgname = gp2-git
