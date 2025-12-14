@@ -3,7 +3,7 @@
 pkgname='gp2-git'
 pkgver=r1077.b34765e
 pkgrel=1
-pkgdesc=" The rule-based graph programming language GP 2"
+pkgdesc="The rule-based graph programming language GP 2"
 arch=('x86_64')
 url="https://uoycs-plasma.github.io/GP2/"
 license=('GPL3')
