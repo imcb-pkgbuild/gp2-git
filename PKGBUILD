@@ -6,7 +6,7 @@ pkgrel=1
 pkgdesc="The rule-based graph programming language GP 2"
 arch=('x86_64')
 url="https://uoycs-plasma.github.io/GP2/"
-license=('GPL3')
+license=('GPL-3.0-only')
 depends=(
     'glibc'
     'glib2'
@@ -58,5 +58,5 @@ package() {
 
     # link binary
     install -d "${pkgdir}/usr/bin"
-    ln -s "/opt/gp2/gp2" "${pkgdir}/usr/bin"
+    ln -s "/opt/gp2/bin/gp2" "${pkgdir}/usr/bin"
 }
