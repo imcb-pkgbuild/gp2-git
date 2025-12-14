@@ -55,4 +55,8 @@ package() {
     cd "${pkgname}"
     
     make DESTDIR="${pkgdir}/" install
+
+    # link binary
+    install -d "${pkgdir}/usr/bin"
+    ln -s "/opt/gp2/gp2" "${pkgdir}/usr/bin"
 }
