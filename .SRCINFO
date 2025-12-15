@@ -12,6 +12,7 @@ pkgbase = gp2-git
 	depends = judy
 	depends = autoconf
 	depends = automake
+	depends = binutils
 	depends = bison
 	depends = flex
 	depends = gcc
