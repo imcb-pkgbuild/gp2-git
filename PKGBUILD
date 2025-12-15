@@ -11,10 +11,10 @@ depends=(
     'bash'
     'glibc'
     'glib2'
+    'judy'
 )
 makedepends=(
     'git'
-    'judy'
     # patch fixes this
     # 'pandoc'
 )
@@ -42,11 +42,14 @@ prepare() {
     cd "${pkgname}"
 
     cp --dereference "${srcdir}/gp2c" "bin/gp2c"
-    patch -p1 -i "$srcdir/${pkgname}.patch"
+    patch -p1 -i "${srcdir}/${pkgname}.patch"
 }
 
 build() {
     cd "${pkgname}"
+
+    # software has buffer overflow problem with 3 (the arch default)
+    export CFLAGS="${CFLAGS/D_FORTIFY_SOURCE=3/D_FORTIFY_SOURCE=2}"
 
     autoreconf -i
     ./configure --prefix=/opt/gp2
