@@ -72,7 +72,7 @@ build() {
 
 package() {
     cd "${pkgname}"
-    
+
     make DESTDIR="${pkgdir}/" install
 
     # this system heavily needs improving upstream
