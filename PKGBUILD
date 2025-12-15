@@ -11,7 +11,14 @@ depends=(
     'bash'
     'glibc'
     'glib2'
+    # these are needed at runtime because of how it works
     'judy'
+    'autoconf'
+    'automake'
+    'bison'
+    'flex'
+    'gcc'
+    'make'
 )
 makedepends=(
     'git'
