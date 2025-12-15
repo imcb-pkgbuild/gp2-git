@@ -1,0 +1,23 @@
+diff '--color=auto' -ura gp2-git.orig/bin/gp2c gp2-git.new/bin/gp2c
+--- gp2-git.orig/bin/gp2c	2025-12-15 14:32:28.414916591 +0000
++++ gp2-git.new/bin/gp2c	2025-12-15 14:32:53.161434057 +0000
+@@ -1,6 +1,6 @@
+ #!/bin/bash
+ 
+-install_dir="/opt/local/gp2c"
++install_dir="/opt/gp2"
+ 
+ flags=""
+ code=false
+diff '--color=auto' -ura gp2-git.orig/Makefile.am gp2-git.new/Makefile.am
+--- gp2-git.orig/Makefile.am	2025-12-15 14:16:32.914095016 +0000
++++ gp2-git.new/Makefile.am	2025-12-15 14:21:40.051323913 +0000
+@@ -3,7 +3,7 @@
+ EXTRA_DIST = programs README.md
+ 
+ README: README.md
+-	pandoc -f markdown -t plain --wrap=none $< -o $@
++	cp $< $@
+ 
+ # Install into the doc directory
+ doc_DATA = COPYING README

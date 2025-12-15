@@ -40,7 +40,7 @@ pkgver() {
 prepare() {
     cd "${pkgname}"
 
-    mv "${srcdir}/gp2c" "bin/gp2c"
+    cp --dereference "${srcdir}/gp2c" "bin/gp2c"
     patch -p1 -i "$srcdir/${pkgname}.patch"
 }
 
