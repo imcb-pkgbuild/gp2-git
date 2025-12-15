@@ -14,8 +14,8 @@ depends=(
 )
 makedepends=(
     'git'
-    # stupid
-    'pandoc'
+    # patch fixes this
+    # 'pandoc'
 )
 checkdepends=()
 optdepends=()
@@ -24,9 +24,11 @@ conflicts=("${pkgname%-git}")
 source=(
     "${pkgname}::git+https://github.com/UoYCS-plasma/GP2.git"
     'https://gist.githubusercontent.com/ismaili-ziad/0e2b06cb0f1a896ac99b2f2a481d39c5/raw/8adad53661c49ce817ee1f63d9056b72917ec755/gp2c'
+    "${pkgname}.patch"
 )
 sha256sums=('SKIP'
-            '3047cb18c916bb503b2dc6f0f312a8f66c713b2a749ac1668856b6b562c1bdc0')
+            '3047cb18c916bb503b2dc6f0f312a8f66c713b2a749ac1668856b6b562c1bdc0'
+            'e1541c0e62243cf630b44c0baec81df94532271a6568c04cde14b365b0b4fd45')
 
 pkgver() {
     cd "${pkgname}"
@@ -38,7 +40,8 @@ pkgver() {
 prepare() {
     cd "${pkgname}"
 
-    # patch -p1 -i "$srcdir/${pkgname}-${pkgver}.patch"
+    mv "${srcdir}/gp2c" "bin/gp2c"
+    patch -p1 -i "$srcdir/${pkgname}.patch"
 }
 
 build() {
