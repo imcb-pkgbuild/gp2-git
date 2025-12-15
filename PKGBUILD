@@ -8,12 +8,13 @@ arch=('x86_64')
 url="https://uoycs-plasma.github.io/GP2/"
 license=('GPL-3.0-only')
 depends=(
+    'bash'
     'glibc'
     'glib2'
-    'judy'
 )
 makedepends=(
     'git'
+    'judy'
     # patch fixes this
     # 'pandoc'
 )
