@@ -13,6 +13,8 @@ pkgbase = gp2-git
 	provides = gp2
 	conflicts = gp2
 	source = gp2-git::git+https://github.com/UoYCS-plasma/GP2.git
+	source = https://gist.githubusercontent.com/ismaili-ziad/0e2b06cb0f1a896ac99b2f2a481d39c5/raw/8adad53661c49ce817ee1f63d9056b72917ec755/gp2c
 	sha256sums = SKIP
+	sha256sums = 3047cb18c916bb503b2dc6f0f312a8f66c713b2a749ac1668856b6b562c1bdc0
 
 pkgname = gp2-git

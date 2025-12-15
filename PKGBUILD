@@ -21,8 +21,12 @@ checkdepends=()
 optdepends=()
 provides=("${pkgname%-git}")
 conflicts=("${pkgname%-git}")
-source=("${pkgname}::git+https://github.com/UoYCS-plasma/GP2.git")
-sha256sums=('SKIP')
+source=(
+    "${pkgname}::git+https://github.com/UoYCS-plasma/GP2.git"
+    'https://gist.githubusercontent.com/ismaili-ziad/0e2b06cb0f1a896ac99b2f2a481d39c5/raw/8adad53661c49ce817ee1f63d9056b72917ec755/gp2c'
+)
+sha256sums=('SKIP'
+            '3047cb18c916bb503b2dc6f0f312a8f66c713b2a749ac1668856b6b562c1bdc0')
 
 pkgver() {
     cd "${pkgname}"
@@ -56,7 +60,11 @@ package() {
     
     make DESTDIR="${pkgdir}/" install
 
+    # install gp2c from gist
+    install -Dm755 "${srcdir}/gp2c" "${pkgdir}/opt/gp2/bin/gp2c"
+
     # link binary
     install -d "${pkgdir}/usr/bin"
-    ln -s "/opt/gp2/bin/gp2" "${pkgdir}/usr/bin"
+    ln -s "/opt/gp2/bin/gp2" "${pkgdir}/usr/bin/gp2"
+    ln -s "/opt/gp2/bin/gp2c" "${pkgdir}/usr/bin/gp2c"
 }
