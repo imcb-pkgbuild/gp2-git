@@ -64,10 +64,10 @@ package() {
     
     make DESTDIR="${pkgdir}/" install
 
-    # install gp2c from gist
-    install -Dm755 "${srcdir}/gp2c" "${pkgdir}/opt/gp2/bin/gp2c"
+    # install gp2c
+    install -Dm755 "bin/gp2c" "${pkgdir}/opt/gp2/bin/gp2c"
 
-    # link binary
+    # link binaries
     install -d "${pkgdir}/usr/bin"
     ln -s "/opt/gp2/bin/gp2" "${pkgdir}/usr/bin/gp2"
     ln -s "/opt/gp2/bin/gp2c" "${pkgdir}/usr/bin/gp2c"
