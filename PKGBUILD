@@ -67,6 +67,9 @@ package() {
     
     make DESTDIR="${pkgdir}/" install
 
+    # this system heavily needs improving upstream
+    cp -r "lib/"* "${pkgdir}/opt/gp2/lib/"
+
     # install gp2c
     install -Dm755 "bin/gp2c" "${pkgdir}/opt/gp2/bin/gp2c"
 
